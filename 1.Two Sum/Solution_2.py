@@ -5,8 +5,11 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        indexdict = {}
         for i in range(len(nums)):
-            for x in range(i+1, len(nums)):
-                if nums[i] + nums [x] == target:
-                    return [i,x]
+            if target - nums[i] in indexdict:
+                return [indexdict[target - nums[i]],i]
+            indexdict[nums[i]] = i
         return []
+            
+            
